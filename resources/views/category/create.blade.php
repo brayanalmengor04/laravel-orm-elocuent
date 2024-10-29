@@ -15,7 +15,7 @@
             aria-describedby="helpId" 
             require
             placeholder="Write the category description *"/>
-        <small id="helpId" class="form-text text-muted"></small>
+            <small id="helpId" class="form-text text-danger">{{ $errors->first("description") }}</small>
     </div> 
 
     <input
