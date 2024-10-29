@@ -64,7 +64,7 @@
                 name="id_category"
                 id=""
             >
-                <option selected disable>Select one category</option> 
+                <option disable>Select one category</option> 
                 @foreach($categories as $category)
                 <option value="{{$category->id}}" @if (old('id_category') == $category->id) selected @endif>{{$category->description}}</option>
                 @endforeach 
