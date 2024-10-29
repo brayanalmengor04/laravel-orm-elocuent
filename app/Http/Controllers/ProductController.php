@@ -10,9 +10,7 @@ use App\Models\Category;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+ 
     public function index()
     {
         $products = Product::join("categories", "categories.id", "=", "products.id_category") 
@@ -47,7 +45,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view("product.show", compact('product'));
     }
 
     /**
@@ -55,8 +53,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     { 
-
-        return view("product.edit", compact("product"));
+        $categories = Category::all();
+        return view("product.edit", compact("product", "categories"));
     }
 
     /**
@@ -64,7 +62,8 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
-        //
+        $product->update($request->all());   
+        return  redirect(route("product.index"))->with("message","It has been update Product successfully");
     }
 
     /**

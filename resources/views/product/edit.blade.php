@@ -14,7 +14,7 @@
             id=""
             aria-describedby="helpId" 
             require 
-            value="{{ old('code') }}" 
+            value="{{ old('code',$product->code) }}" 
             placeholder="Write the product code *"/>
             <small id="helpId" class="form-text text-danger">{{ $errors->first("code") }}</small>
     </div>  
@@ -26,7 +26,7 @@
             name="description"
             id=""
             aria-describedby="helpId"
-            value="{{ old('description') }}" 
+            value="{{ old('description',$product->description) }}" 
             require
             placeholder="Write the product description *"/>
             <small id="helpId" class="form-text text-danger">{{ $errors->first("description") }}</small>
@@ -40,7 +40,7 @@
             name="amount"
             id=""
             aria-describedby="helpId"  
-            value="{{ old('amount') }}" 
+            value="{{ old('amount',$product->amount) }}" 
             require
             placeholder="Write the product amount *"/>
             <small id="helpId" class="form-text text-danger">{{ $errors->first("amount") }}</small>
@@ -55,7 +55,7 @@
             id=""
             aria-describedby="helpId" 
             require 
-            value="{{ old('price') }}" 
+            value="{{ old('price',$product->price) }}" 
             step="0.01"
             placeholder="Write the product price *"/>
             <small id="helpId" class="form-text text-danger">{{ $errors->first("price") }}</small>
@@ -71,19 +71,18 @@
             >
                 <option disable>Select one category</option> 
                 @foreach($categories as $category)
-                <option value="{{$category->id}}">{{$category->description}}</option>
+                <option value="{{$category->id}}" @if (old('id_category') == $category->id) selected @endif>{{$category->description}}</option>
                 @endforeach
             </select> 
             <small id="helpId" class="form-text text-danger">{{ $errors->first("id_category") }}</small>
         </div>
-        
     </div> 
     <input
         name=""
         id=""
         class="btn btn-primary"
         type="submit"
-        value="Create category BD"
+        value="Update category BD"
     />
 <a
     name=""
