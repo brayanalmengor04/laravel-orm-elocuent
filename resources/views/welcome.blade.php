@@ -34,7 +34,16 @@
                 role="button"
                 >List Category</a
             >
-        </div>
+            
+            <a
+                name=""
+                id=""
+                class="btn btn-primary"
+                href="{{route('product.index')}}"
+                role="button"
+                >List Product</a
+            >
+        </div> 
         
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
